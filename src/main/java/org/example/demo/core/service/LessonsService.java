@@ -10,11 +10,6 @@ import java.util.HashSet;
 
 @Service
 public class LessonsService {
-    public Module createModule() {
-        // TODO
-        return new Module("Example module");
-    }
-
     public Lesson createLesson() {
         // TODO
         return new Lesson(
@@ -24,12 +19,6 @@ public class LessonsService {
                 new HashSet<>(),
                 Short.parseShort("2")
         );
-    }
-
-    public Module addLesson(Module module, Lesson lesson) {
-        // TODO
-        module.addLesson(lesson);
-        return module;
     }
 
     public Progress start(Student student, Lesson lesson) {
