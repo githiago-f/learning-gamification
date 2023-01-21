@@ -16,6 +16,6 @@ public class SampleAfterAspect {
 
     @AfterReturning(value = "pointCutOnExecution()", returning = "valRet")
     public void afterReturn(JoinPoint jp, Object valRet) {
-        logger.info("Returning value {}", valRet);
+        logger.debug("Returning value {}", valRet);
     }
 }

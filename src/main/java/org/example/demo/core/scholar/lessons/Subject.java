@@ -1,22 +1,16 @@
-package org.example.demo.core.schoolar.lessons;
+package org.example.demo.core.scholar.lessons;
 
 public class Subject {
-    private final Long id;
     private String title;
     private String description;
 
     public Subject() {
-        this(null, null, null);
+        this(null, null);
     }
 
-    public Subject(Long id, String title, String description) {
-        this.id = id;
+    public Subject(String title, String description) {
         this.title = title;
         this.description = description;
-    }
-
-    public Long getId() {
-        return id;
     }
 
     public String getTitle() {

@@ -1,39 +1,25 @@
 package org.example.demo.core.gamification;
 
-import org.example.demo.core.schoolar.lessons.Module;
-import org.example.demo.core.schoolar.students.Student;
+import org.example.demo.core.scholar.lessons.Lesson;
+import org.example.demo.core.scholar.students.Student;
 
 public class Progress {
     private final Student student;
-    private final Module module;
-    private ProgressState state;
+    private final Lesson lesson;
     private Double percent;
 
-    public Progress() {
-        this(null, null, ProgressState.STARTED, 0.0);
-    }
-
-    public Progress(Student student, Module module, ProgressState state, Double percent) {
+    public Progress(Student student, Lesson lesson) {
         this.student = student;
-        this.module = module;
-        this.state = state;
-        this.percent = percent;
+        this.lesson = lesson;
+        this.percent = 0d;
     }
 
     public Student getStudent() {
         return student;
     }
 
-    public Module getModule() {
-        return module;
-    }
-
-    public ProgressState getState() {
-        return state;
-    }
-
-    public void setState(ProgressState state) {
-        this.state = state;
+    public Lesson getLesson() {
+        return lesson;
     }
 
     public Double getPercent() {

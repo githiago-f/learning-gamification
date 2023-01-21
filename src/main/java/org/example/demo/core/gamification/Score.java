@@ -1,19 +1,19 @@
 package org.example.demo.core.gamification;
 
 public class Score {
-    private Double value;
+    private Long points;
 
-    public Score() {}
+    public Score() { this.points = 0L; }
 
-    public Score(Double value) {
-        this.value = value;
+    public Score(Long value) {
+        this.points = value;
     }
 
-    public Double getValue() {
-        return value;
+    public Long getPoints() {
+        return points;
     }
 
-    public void setValue(Double value) {
-        this.value = value;
+    public void setPoints(Long points) {
+        this.points = points;
     }
 }

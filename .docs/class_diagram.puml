@@ -1,0 +1,76 @@
+@startuml domain
+
+title "Learning gamification - Domain classes"
+
+package core.scholar.lessons {
+    class Lesson {
+        - slug: String
+        - title: String
+        - description: String
+        - subjects: Set<Subject>
+        - pointsWorth: Short
+    }
+    class Module {
+        - name: String
+        - lessons: Set<Lesson>
+    }
+    note top
+    Modules are just groups of lessons.
+    One module will be done if their
+    lessons are done.
+    end note
+
+    Module --* Lesson
+}
+
+package core.schoolar.students {
+    class Student {
+        - name: String
+        - score: Score
+    }
+}
+
+package core.gamification {
+    class Score {
+        - points: Long
+    }
+    class Progress {
+        - lesson: Lesson
+        - percent: Double
+    }
+}
+
+Student -- Score
+Student -- Progress
+Lesson -left- Progress
+
+@enduml
+@startuml services
+title "Learning gamification - Services"
+
+class StudentsService {
+    + create(StudentIn): Student
+}
+class LessonsService {
+    + create(LessonIn): Lesson
+    + start(Student, Lesson): Progress
+    + updateProgress(Lesson, Progress): Progress
+}
+class ModulesService {
+    + create(ModuleIn): Module
+}
+
+@enduml
+
+
+
+
+
+
+
+
+
+
+
+
+
