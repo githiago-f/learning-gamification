@@ -1,4 +1,4 @@
-package org.example.demo.core.service;
+package org.example.demo.core.scholar.students;
 
 import org.example.demo.core.gamification.Score;
 import org.example.demo.core.scholar.students.Student;

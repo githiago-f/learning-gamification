@@ -1,13 +1,13 @@
 package org.example.demo;
 
 import org.example.demo.app.config.AppConfig;
-import org.example.demo.core.gamification.Score;
 import org.example.demo.core.scholar.lessons.Lesson;
 import org.example.demo.core.scholar.lessons.Module;
+import org.example.demo.core.scholar.lessons.in.LessonIn;
 import org.example.demo.core.scholar.students.Student;
-import org.example.demo.core.service.LessonsService;
-import org.example.demo.core.service.ModulesService;
-import org.example.demo.core.service.StudentsService;
+import org.example.demo.core.scholar.lessons.LessonsService;
+import org.example.demo.core.scholar.lessons.ModulesService;
+import org.example.demo.core.scholar.students.StudentsService;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -23,7 +23,7 @@ public class DemoApplication {
         StudentsService studentsService = ctx.getBean(StudentsService.class);
 
         Module module = modulesService.createModule();
-        Lesson lesson = lessonsService.createLesson();
+        Lesson lesson = lessonsService.createLesson(LessonIn.builder().build());
         Student student = studentsService.create();
 
         modulesService.addLesson(module, lesson);

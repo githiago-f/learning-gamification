@@ -1,49 +1,29 @@
 package org.example.demo.core.scholar.lessons;
 
+import jakarta.persistence.*;
+import jakarta.validation.constraints.Size;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 import java.util.Set;
 
+@Getter
+@Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Table(name = "lessons")
 public class Lesson {
-    private final String slug;
+    @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    private Long id;
+    @Size(min = 3, max = 32)
+    private String slug;
     private String title;
     private String description;
-    private final Set<Subject> subjects;
-    private final Short pointsWorth;
-
-    public Lesson(String slug, String title, String description, Set<Subject> subjects, Short pointsWorth) {
-        this.slug = slug;
-        this.title = title;
-        this.description = description;
-        this.subjects = subjects;
-        this.pointsWorth = pointsWorth;
-    }
-
-    public String getSlug() {
-        return slug;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
-
-    public Set<Subject> getSubjects() {
-        return subjects;
-    }
-
-    public Short getPointsWorth() {
-        return pointsWorth;
-    }
+    @OneToMany(targetEntity = Subject.class)
+    private Set<Subject> subjects;
+    private Short pointsWorth;
 
     @Override
     public String toString() {
