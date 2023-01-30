@@ -5,14 +5,14 @@ import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.Set;
 
-@Getter
-@Entity
+@Getter @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "lessons")
+@Entity(name = "lessons")
 public class Lesson {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE)

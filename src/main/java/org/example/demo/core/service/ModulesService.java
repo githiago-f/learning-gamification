@@ -1,5 +1,7 @@
-package org.example.demo.core.scholar.lessons;
+package org.example.demo.core.service;
 
+import org.example.demo.core.scholar.lessons.Lesson;
+import org.example.demo.core.scholar.lessons.Module;
 import org.springframework.stereotype.Service;
 
 @Service

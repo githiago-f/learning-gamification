@@ -1,5 +1,9 @@
 package org.example.demo.core.scholar.lessons.in;
 
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Size;
 import lombok.Builder;
 import lombok.Data;
 import org.example.demo.core.scholar.lessons.Lesson;
@@ -11,8 +15,12 @@ import java.util.Set;
 @Data
 @Builder
 public class LessonIn {
+    @Size(min = 3, max = 255)
     private final String title;
+    @NotEmpty
+    @NotBlank
     private final String description;
+    @Positive
     private final Short pointsWorth;
     private final Set<Subject> subjects;
 

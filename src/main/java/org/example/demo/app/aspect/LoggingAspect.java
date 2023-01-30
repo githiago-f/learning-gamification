@@ -1,6 +1,7 @@
 package org.example.demo.app.aspect;
 
 import org.aspectj.lang.JoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.example.demo.core.scholar.lessons.Lesson;
@@ -21,5 +22,10 @@ public class LoggingAspect {
         Lesson le = (Lesson) args[1];
         String method = jp.getSignature().getName();
         log.info("{} started {}", st, le);
+    }
+
+    @AfterReturning(value = "@annotation(LogResult)", returning = "valRet")
+    public void afterReturn(JoinPoint jp, Object valRet) {
+        log.debug("Returning value {}", valRet);
     }
 }
